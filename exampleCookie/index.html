@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>cookie example</title>
+	<style>
+		#form1{
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			max-width: 300px;
+			background-color: rgba(100,100,100,.6);
+			padding: 0 20px 20px 20px;
+			border-radius: 10px;
+			margin: auto
+		}
+		#form1>input[type=button]{
+			background-color: rgba(233,10,34,0.8);
+			margin-top: 10px;
+		}
+		#form1>input{
+			border-radius: 6px;
+			height: 30px;
+			border: none;
+		}
+		#form1>label{
+			margin-top: 10px;
+		}
+		*:hover,*{
+			outline: none;
+		}
+		#p1{
+			font-family:"B Koodak", "Liberation Serif", Times, "Times New Roman", "serif";
+			font-weight:bolder;
+		}
+	</style>
+</head>
+
+<body>
+	<p id="p1">سلام خوبی؟</p>
+	<div id="welcomeDiv" style="direction: rtl; background-color: rgba(14,221,79,0.50);padding: 10px;">خوش آمدی  <span id="userNameSpan">امیر</span> <span style="color:red;cursor: pointer;" onClick="clearCookie()">خروج</span></div>
+	<div id="container">
+		<form id="form1">
+			<label for="userName">username:</label>
+			<input type="text" id="userName" placeholder="enter val...">
+			<label for="paddword">password:</label>
+			<input type="text" id="password" placeholder="enter val...">
+			<input type="button" value="submit" onClick="formGetData()">
+		</form>
+	</div>
+	
+	<script src="jsCode.js"></script>
+</body>
+</html>
