@@ -1,0 +1,10 @@
+# useFul RegEx Sample
+IRMobile:	(0|\+98|0098)?9[0123][0-9]{8}
+DecInt	 :	[1-9][0-9]+
+UserName : 	[a-zA-Z0-9_-]{3,16}
+Password : 	[a-zA-Z0-9_\-~/\!@#$%^&*\s]{6,18}
+HexValue : 	#([0-9a-f]{6}|[0-9a-f]{3})
+Email 	 :  ([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})
+Url 	 :	(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/? 
+HtmlATag :	<a([^>]+)*>(.+?)<\/a>
+Comment  :  	\/\/.*
