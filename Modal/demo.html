@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Modal | plugin</title>
+    <link rel="stylesheet" href="Modal.css" type="text/css"/>
+    <link rel="stylesheet" href="../Common/bootstrap4/css/bootstrap-rtl.min.css">
+</head>
+
+<body>
+
+
+<!-- Modal buttons -->
+<div class="container">
+    <div class="row my-4">
+        <div class="col-sm-4 mx-auto">
+            <a href="Login" data-modal="loginBox" class="btn btn-success d-inline-block w-100">Login</a>
+        </div>
+    </div>
+    <div class="row justify-content-center my-4">
+        <div class="col-sm-3 d-flex justify-content-center">
+            <button data-modal="searchBox" class="btn btn-warning">Search</button>
+        </div>
+        <div class="col-sm-3 d-flex justify-content-center">
+            <button data-modal="modalBox3" class="btn btn-info">Modal3 : from bottom</button>
+        </div>
+        <div class="col-sm-3 d-flex justify-content-center">
+            <button data-modal="modalBox4" class="btn btn-light">Modal4 : from top Left</button>
+        </div>
+    </div>
+    <div class="row justify-content-center my-4">
+        <div class="col-sm-3 d-flex justify-content-center">
+            <button data-modal="modalBox5" class="btn btn-outline-danger">Modal5 : from Left</button>
+        </div>
+        <div class="col-sm-3 d-flex justify-content-center">
+            <button data-modal="modalBox6" class="btn btn-outline-success">Modal6 : from Right</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal Boxes -->
+<div id="loginBox" class="Modal" data-entrance="fade">
+    <form class="pure-form pure-form-stacked" style="width: 240px;line-height: 50px;margin: 0 auto;">
+            <strong>Login : </strong><br>
+            <input type="email" class="form-control" placeholder="Email">
+            <input type="password" class="form-control my-2" placeholder="Password">
+            <label for="remember" class="mb-0">
+                <input id="remember" type="checkbox" class="form-check-control"> Remember me
+            </label>
+            <br/>
+            <button type="submit" class="btn btn-success w-100">Sign in</button>
+    </form>
+</div>
+
+
+
+<div id="searchBox" class="Modal">
+    <form class="pure-form">
+        <fieldset>
+            <strong>Search Your Keywords: </strong><br><br>
+            <div class="d-flex align-items-center">
+                <input type="text" class="form-control  mr-1" placeholder="Enter search keywords ..." style="width: 300px">
+                <button type="submit" class="btn btn-success ">Go</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="Modal" id="modalBox3"  data-entrance="bottom">
+    Modal 3
+</div>
+
+<div class="Modal" id="modalBox4"  data-entrance="topleft">
+    Modal 4
+</div>
+
+<div class="Modal" id="modalBox5"  data-entrance="left">
+    Modal 5
+</div>
+
+<div class="Modal" id="modalBox6"  data-entrance="right">
+    Modal 6
+</div>
+
+
+<script src="../Common/js/jquery.js"></script>
+<script src="../Common/bootstrap4/js/bootstrap.min.js"></script>
+<script src="Modal.js"></script>
+<script>
+    $().Modal()
+</script>
+</body>
+
+</html>
