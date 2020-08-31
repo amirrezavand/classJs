@@ -1,0 +1,28 @@
+.accMenu {
+    direction: rtl;
+    text-align: right;
+}
+
+.accMenu .accTitle {
+    margin: 0;
+    padding: 6px 12px 8px;
+    background-color: #eee;
+    border: 1px solid #eaeaea;
+    font-size: 20px;
+    font-family: "B Yekan";
+}
+.accMenu .accTitle:hover {
+    cursor: pointer;
+    background-color: #f7f7f7;
+}
+
+.accMenu .accContent {
+    background-color: #fafafa;
+    padding: 12px;
+    border-right: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
+    color: #555;
+    font-size: 18px;
+    font-family: "B Koodak";
+    display: none;
+}
