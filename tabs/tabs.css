@@ -1,0 +1,42 @@
+.Tabs {
+    direction: rtl;
+    text-align: right;
+    font-family: tahoma;
+    font-size: 13px;
+}
+a.TabLink {
+    text-decoration: none;
+    color: #333;
+    background-color: #eee;
+    padding: 5px 10px;
+    border-radius: 3px 3px 0 0;
+    margin-left: 1px;
+    float: right;
+}
+a.TabLink:hover{
+    background-color: #f9f9f9;
+}
+a.TabLink.currentTab {
+    background-color: #f9f9f9;
+}
+
+div.TabContent {
+    padding: 10px;
+    background-color: #f9f9f9;
+    min-height: 200px;
+    line-height: 150%;
+    display: none;
+    clear: both;
+
+}
+div.TabContent.default{
+    display: block;
+}
+div.TabContent a{
+    text-decoration: none;
+    color: #3c68a3
+}
+div.TabContent a:hover{
+    text-decoration: none;
+    color: #333
+}
