@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>slider | plugin</title>
+    <link rel="stylesheet" href="../Common/css/font-awesome.css">
+    <script src="../Common/js/jquery.js"></script>
+    <style>
+        *{
+            padding: 0px;
+            margin:0px;
+        }
+        .sliderWrapper{
+            width: 100%;
+        }
+        .arSlider{
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            margin:0;
+            padding:0;
+            display: flex;
+            align-items: center;
+            background-color: black;
+            overflow: hidden;
+        }
+        .arSlide{
+            min-width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .arSlide img{
+            width: 100%;
+            height: 100%;
+        }
+        .arSlider .goLeft{
+            position: absolute;
+            bottom: 0px;
+            left:0;
+            width: 10%;
+            height:100%;
+            background: none;
+            border:none;
+            outline:none;
+            transition:.5s;
+            font-size: 25px;
+        }
+        .arSlider .goRight{
+            position: absolute;
+            bottom: 0px;
+            right:0;
+            width: 10%;
+            height:100%;
+            background: none;
+            border:none;
+            outline:none;
+            transition:.5s;
+            font-size: 25px;
+        }
+        .arSlider .goRight:hover,.arSlider .goLeft:hover{
+            background-color:rgba(0,0,0,.3);
+            color:whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+<div class="sliderWrapper">
+    <div id="slider1" class="arSlider">
+        <div class="arSlide">
+            <img src="./slides/slider1.jpg" alt="">
+        </div>
+        <div class="arSlide">
+            <img src="./slides/slider2.jpg" alt="">
+        </div>
+        <div class="arSlide">
+            <img src="./slides/slider3.jpg" alt="">
+        </div>
+
+        <button class="goLeft">
+            <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="goRight">
+            <i class="fa fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+    // $('#slider1').slSlider({slideTime:1000});
+    setting={
+        imgWidth:512,//px
+        imgHeight:192//px
+    }
+    console.log($(".arSlider").width());
+    var calcSliderHeight=Math.round(setting.imgHeight/setting.imgWidth*$(".arSlider").width())
+    $(".arSlider").css({height:calcSliderHeight})
+    var x=0
+    $(".arSlide").css({transition:"1s"});
+    $(".goLeft").click(function(){
+        x+=100;
+        if((x/100)>0) x=(-100*($(".arSlide").length-1));
+        $(".arSlide").css({transform:"translateX("+x+"%)"});
+    });
+    $(".goRight").click(function(){
+        x-=100;
+        if((x/100)<=(-1*($(".arSlide").length))) x=0;
+        $(".arSlide").css({transform:"translateX("+x+"%)"});
+    });
+</script>
+
+</body>
+
+</html>
