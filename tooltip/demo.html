@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>tooltip | plugin</title>
+    <link rel="stylesheet" href="css/theme.light.css" type="text/css"/>
+
+    <style>
+        div{
+            margin: 50px auto;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="d1">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer
+    took a <span class="tooltip" title="Awesome Gallery" data-ttw="110" data-ttbg="yellow">galley</span> of type and scrambled it to make a type specimen book.
+    and more recently with desktop publishing software like Aldus PageMaker including versions of <span class="tooltip" title="Lorem Ipsum is simply dummy text of the printing and typesetting industry">LoremIpsum</span>.
+</div>
+
+
+<script src="../Common/js/jquery.js"></script>
+<script src="./tooltip.js"></script>
+<script>
+    $(".tooltip").tooltip({width:200})
+</script>
+
+
+</body>
+
+</html>

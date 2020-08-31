@@ -1,0 +1,27 @@
+.tooltip{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.tooltipBox {
+    background-color: #333;
+    color: white;
+    margin: 0;
+    padding: 5px 7px;
+    width: 200px;
+    border-radius: 3px;
+    text-align: left;
+    font-size: 13px;
+    position: fixed;
+    display: none;
+}
+.tooltipBox:after{
+    content: " ";
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #333;
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+}
