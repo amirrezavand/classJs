@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>slider | plugin</title>
+    <link rel="stylesheet" href="../Common/css/font-awesome.css">
+    <script src="../Common/js/jquery.js"></script>
+    <style>
+        *{
+            padding: 0px;
+            margin:0px;
+            box-sizing: border-box;
+        }
+        /* .sliderWrapper{
+            width: 100%;
+        }
+        .arSlider{
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            margin:0;
+            padding:0;
+            display: flex;
+            align-items: center;
+            background-color: black;
+            overflow: hidden;
+        }
+        .arSlide{
+            min-width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .arSlide img{
+            width: 100%;
+            height: 100%;
+        }
+        .arSlider .goLeft{
+            position: absolute;
+            bottom: 0px;
+            left:0;
+            width: 10%;
+            height:100%;
+            background: none;
+            border:none;
+            outline:none;
+            transition:.5s;
+            font-size: 25px;
+        }
+        .arSlider .goRight{
+            position: absolute;
+            bottom: 0px;
+            right:0;
+            width: 10%;
+            height:100%;
+            background: none;
+            border:none;
+            outline:none;
+            transition:.5s;
+            font-size: 25px;
+        }
+        .arSlider .goRight:hover,.arSlider .goLeft:hover{
+            background-color:rgba(0,0,0,.3);
+            color:whitesmoke;
+        } */
+        .arSlider{
+            width:800px;
+            height: 200px;
+            overflow: hidden;
+            border:1px solid red;
+            margin:0 auto;
+            position: relative;
+        }
+        .arSlide{
+            overflow: hidden;
+            position: absolute;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .arSlide{
+            width: 200px;
+            height:100px;      
+            padding: 5px;  
+            left:-200px;
+            top:25%;    
+        }
+        .active{
+            width: 400px;
+            height:200px;
+            left:calc(25%);
+            top:0;
+            padding: 5px;
+            z-index: 2;
+        }
+        .prev ,.next{
+            width: 200px;
+            height:100px;      
+            padding: 5px;  
+            left:0;    
+            top: calc(25%);
+        }
+        .next{
+            z-index: 5;
+            left:calc(75%);
+        }
+        .goLeft , .goRight{
+            position: absolute;
+            background-color: transparent;
+            border: none;
+            color: whitesmoke;
+            top: calc(45%);
+            z-index: 10;
+            outline: none;
+        }
+        .goLeft{
+            left:calc(28%);
+        }
+        .goRight{
+            right: calc(28%);
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="sliderWrapper">
+    <div id="slider1" class="arSlider">
+        <div class="arSlide lastPrev">
+            <img src="./slides/slider3.jpg" alt="">
+        </div>
+        <div class="arSlide prev">
+            <img src="./slides/slider1.jpg" alt="">
+        </div>
+        <div class="arSlide active" >
+            <img src="./slides/slider2.jpg" alt="">
+        </div>
+        <div class="arSlide next">
+            <img src="./slides/slider3.jpg" alt="">
+        </div>
+        <div class="arSlide lastNext">
+            <img src="./slides/slider3.jpg" alt="">
+        </div>
+        <button class="goLeft">
+            <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="goRight">
+            <i class="fa fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+    // $('#slider1').slSlider({slideTime:1000});
+
+    // setting={
+    //     imgWidth:512,//px
+    //     imgHeight:192//px
+    // }
+    // console.log($(".arSlider").width());
+    // var calcSliderHeight=Math.round(setting.imgHeight/setting.imgWidth*$(".arSlider").width())
+    // $(".arSlider").css({height:calcSliderHeight})
+    // var x=0
+    // $(".arSlide").css({transition:"1s"});
+    
+        $(".goLeft").click(function(){
+            $(".lastNext").css({left:"100%"}).animate({left:"75%"},1000);
+            $(".prev").animate({left:"-25%"},1000);
+            $(".active").animate({left:"0px",top:"25%",width:"25%",height:"50%"},1000);
+            $(".next").animate({top:"0px",left:"25%",width:"50%",height:"100%"},1000);
+
+         });
+        $(".goRight").click(function(){
+            $(".next").animate({left:"125%"},1000);
+            $(".active").animate({left:"75%",top:"25%",width:"25%",height:"50%"},1000);
+            $(".prev").animate({top:"0px",left:"25%",width:"50%",height:"100%"},1000);
+            $(".lastPrev").css({left:"-25%"}).animate({left:"0"},1000);
+        });
+
+    // $(".goLeft").click(function(){
+    //     x+=100;
+    //     if((x/100)>0) x=(-100*($(".arSlide").length-1));
+    //     $(".arSlide").css({transform:"translateX("+x+"%)"});
+    // });
+    // $(".goRight").click(function(){
+    //     x-=100;
+    //     if((x/100)<=(-1*($(".arSlide").length))) x=0;
+    //     $(".arSlide").css({transform:"translateX("+x+"%)"});
+    // });
+</script>
+
+</body>
+
+</html>
