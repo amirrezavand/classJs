@@ -69,10 +69,13 @@
             border:1px solid red;
             margin:0 auto;
             position: relative;
+            background-color: #fff;
         }
         .arSlide{
             overflow: hidden;
             position: absolute;
+            transition: .5s;
+
         }
         img{
             width: 100%;
@@ -83,7 +86,9 @@
             height:100px;      
             padding: 5px;  
             left:-200px;
-            top:25%;    
+            top:25%;   
+            z-index:-1; 
+            visibility: hidden;
         }
         .active{
             width: 400px;
@@ -92,6 +97,7 @@
             top:0;
             padding: 5px;
             z-index: 2;
+            visibility: visible;
         }
         .prev ,.next{
             width: 200px;
@@ -99,10 +105,21 @@
             padding: 5px;  
             left:0;    
             top: calc(25%);
+            z-index: 2;
+            visibility: visible;
         }
         .next{
-            z-index: 5;
+            z-index:2;
             left:calc(75%);
+        }
+        .lastNext{
+            left:100%;
+            z-index: 2;
+            visibility: hidden;
+        }
+        .lastPrev{
+            z-index: 2;
+            visibility: hidden;
         }
         .goLeft , .goRight{
             position: absolute;
@@ -141,6 +158,9 @@
         <div class="arSlide lastNext">
             <img src="./slides/slider3.jpg" alt="">
         </div>
+        <div class="arSlide">
+            <img src="./slides/slider3.jpg" alt="">
+        </div>
         <button class="goLeft">
             <i class="fa fa-chevron-left"></i>
         </button>
@@ -164,17 +184,54 @@
     // $(".arSlide").css({transition:"1s"});
     
         $(".goLeft").click(function(){
-            $(".lastNext").css({left:"100%"}).animate({left:"75%"},1000);
-            $(".prev").animate({left:"-25%"},1000);
-            $(".active").animate({left:"0px",top:"25%",width:"25%",height:"50%"},1000);
-            $(".next").animate({top:"0px",left:"25%",width:"50%",height:"100%"},1000);
-
+            // $(".lastNext").css({left:"100%"}).animate({left:"75%"},1000);
+            // $(".prev").animate({left:"-25%"},1000);
+            // $(".active").animate({left:"0px",top:"25%",width:"25%",height:"50%"},1000);
+            // $(".next").animate({top:"0px",left:"25%",width:"50%",height:"100%"},1000);
+            var _lastNext=$(".lastNext");
+            var _next=$(".next");
+            var _active=$(".active");
+            var _prev=$(".prev");
+            var _lastPrev=$(".lastPrev");
+            if(_lastNext.next().hasClass("arSlide")){
+                _lastNext.next().addClass("lastNext");
+            }
+            else{
+                $(".arSlide").first().addClass("lastNext");
+                
+            }
+            _lastNext.removeClass("lastNext").addClass("next");
+            _lastPrev.removeClass("lastPrev");
+            _next.removeClass("next").addClass("active");
+            _active.removeClass("active").addClass("prev");
+            _prev.removeClass("prev").addClass("lastPrev");
          });
         $(".goRight").click(function(){
-            $(".next").animate({left:"125%"},1000);
-            $(".active").animate({left:"75%",top:"25%",width:"25%",height:"50%"},1000);
-            $(".prev").animate({top:"0px",left:"25%",width:"50%",height:"100%"},1000);
-            $(".lastPrev").css({left:"-25%"}).animate({left:"0"},1000);
+            var _lastNext=$(".lastNext");
+            var _next=$(".next");
+            var _active=$(".active");
+            var _prev=$(".prev");
+            var _lastPrev=$(".lastPrev");
+            if(_lastPrev.prev().hasClass("arSlide")){
+                _lastPrev.prev().addClass("lastPrev");
+            }
+            else{
+                $(".arSlide").last().addClass("lastPrev");
+                
+            }
+            _lastPrev.removeClass("lastPrev").addClass("prev");
+            _lastNext.removeClass("lastNext");
+            _prev.removeClass("prev").addClass("active");
+            _active.removeClass("active").addClass("next");
+            _next.removeClass("next").addClass("lastNext");
+
+
+
+
+            // $(".next").animate({left:"125%"},1000);
+            // $(".active").animate({left:"75%",top:"25%",width:"25%",height:"50%"},1000);
+            // $(".prev").animate({top:"0px",left:"25%",width:"50%",height:"100%"},1000);
+            // $(".lastPrev").css({left:"-25%"}).animate({left:"0"},1000);
         });
 
     // $(".goLeft").click(function(){
